@@ -6,15 +6,12 @@ Page({
     city: "杭州市"
   },
   onLoad(options){
-    console.log("onLoad")
     this.setData({
       city: options.city
     })
     this.getWeekWeather()
-
   },
   onPullDownRefresh(){
-    console.log("onPullDownRefresh")
     this.getWeekWeather(()=> {
       wx.stopPullDownRefresh()
     })
@@ -28,7 +25,6 @@ Page({
         city: this.data.city
       },
       success: res=> {
-        console.log(res)
         let result = res.data.result
         this.setWeekWeather(result)
         //this.setWeekWeather(result)
